@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio Naelino Elixxzy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;text-decoration:none;border:none;outline:none;font-family:'Poppins',sans-serif;}
+html{font-size:62.5%;scroll-behavior:smooth;}
+body{width:100%;min-height:100vh;overflow-x:hidden;background:black;color:white;line-height:1.5;position:relative;transition:filter 0.3s ease;}
+#particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+header{position:fixed;top:0;left:0;width:100%;padding:1rem 9%;background:black;display:flex;justify-content:space-between;align-items:center;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.1);}
+.logo{font-size:3rem;color:#7200c4;font-weight:800;cursor:pointer;transition:0.5s ease;}
+.logo:hover{transform:scale(1.1);}
+nav{position:relative;display:flex;align-items:center;}
+nav a{font-size:1.8rem;color:white;margin-left:4rem;font-weight:500;position:relative;transition:0.3s;}
+.nav-underline{position:absolute;bottom:0;height:3px;background:#7200c4;transition:left 0.3s,width 0.3s;}
+section{min-height:100vh;padding:8rem 9% 5rem;position:relative;z-index:1;}
+.home{display:flex;justify-content:center;align-items:center;gap:8rem;background:black;flex-wrap:wrap;text-align:left;}
+.home .home-content h1{font-size:6rem;font-weight:700;line-height:1.3;}
+span{color:#7200c4;}
+.home-content h3{font-size:3.2rem;margin-bottom:1.5rem;font-weight:700;}
+.home-content p{font-size:1.6rem;max-width:600px;}
+.home-img img{width:28vw;max-width:300px;border-radius:50%;box-shadow:0 0 25px #7200c4;cursor:pointer;transition:transform 0.3s ease;}
+.home-img img:hover{transform:scale(1.05);}
+.social-icons a{display:inline-flex;justify-content:center;align-items:center;width:4rem;height:4rem;background:transparent;border:0.2rem solid #7200c4;font-size:2rem;border-radius:50%;margin:3rem 1.5rem 3rem 0;color:#7200c4;transition:0.3s ease;}
+.social-icons a:hover{color:black;transform:scale(1.3) translateY(-5px);background:#7200c4;box-shadow:0 0 25px #7200c4;}
+.btn{display:inline-block;padding:1rem 2.8rem;border-radius:4rem;font-size:1.6rem;color:white;letter-spacing:0.2rem;font-weight:600;border:2px solid transparent;transition:0.3s ease;cursor:pointer;}
+.btn.glowing{background:linear-gradient(45deg,#7200c4,#c400ff,#7200c4);background-size:400% 400%;animation:glow 8s ease infinite;box-shadow:0 0 20px #7200c4;border:2px solid #7200c4;}
+.btn.glowing:hover{transform:scale(1.05);color:black;background:white;box-shadow:0 0 30px #c400ff;}
+@keyframes glow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.fade-in{animation:fadeIn 0.8s ease forwards;}
+@keyframes fadeIn{0%{opacity:0;transform:scale(1.05);}100%{opacity:1;transform:scale(1);}}
+.fade-out{opacity:0;transform:scale(1.05);transition:0.3s ease;}
+.pc-specs{background: linear-gradient(120deg,#0d0d0d,#1a001f,#0d0d0d,#1a001f);background-size:400% 400%;animation:bgMove 20s ease infinite;text-align:center;position:relative;overflow:hidden;}
+@keyframes bgMove{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.pc-specs .section-title{font-size:4rem;margin-bottom:4rem;color:#7200c4;text-shadow:0 0 15px rgba(114,0,196,0.8);}
+.specs-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.5rem;position:relative;z-index:1;}
+.spec-card{background:#161616;padding:2rem;border-radius:1.5rem;box-shadow:0 0 15px rgba(114,0,196,0.3);transition:transform 0.3s ease,box-shadow 0.3s ease,opacity 0.6s ease;opacity:0;transform:translateY(30px);}
+.spec-card.in-view{opacity:1;transform:translateY(0);}
+.spec-card img{width:100%;max-height:160px;object-fit:contain;border-radius:1rem;margin-bottom:1.5rem;transition:transform 0.3s ease;}
+.spec-card h3{font-size:1.8rem;color:#fff;}
+.spec-card:hover{transform:translateY(-10px) scale(1.05) rotateX(5deg) rotateY(5deg);box-shadow:0 0 35px rgba(114,0,196,0.9);}
+.spec-card:hover img{transform:scale(1.05) rotate(-2deg);}
+.loadout{background:#0d0d0d;text-align:center;position:relative;overflow:hidden;padding-bottom:8rem;}
+.loadout .section-title{font-size:4rem;margin-bottom:4rem;color:#7200c4;text-shadow:0 0 15px rgba(114,0,196,0.8);}
+.loadout-categories{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;}
+.loadout-card{padding:1.5rem 3rem;background:#161616;border-radius:1.5rem;cursor:pointer;transition:0.3s;box-shadow:0 0 15px rgba(114,0,196,0.3);}
+.loadout-card:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(114,0,196,0.8);}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;justify-content:center;align-items:flex-start;padding:4rem;overflow-y:auto;z-index:2000;backdrop-filter:blur(6px);}
+.overlay-content{background:#161616;padding:2rem;border-radius:1.5rem;width:100%;max-width:1200px;position:relative;}
+.close-btn{font-size:3rem;color:#7200c4;cursor:pointer;position:absolute;top:2rem;right:3rem;transition:0.3s;}
+.close-btn:hover{color:white;}
+.weapon-grid, .attachment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-top:2rem;}
+.weapon-card, .attachment-card{opacity:0;transform:translateY(20px);transition:all 0.5s ease;}
+.weapon-card.in-view{opacity:1;transform:translateX(0) translateY(0);}
+.attachment-card.in-view{opacity:1;transform:translateX(0) translateY(0);}
+.weapon-card.slide-left{ transform:translateX(-50px) translateY(20px); }
+.attachment-card.slide-right{ transform:translateX(50px) translateY(20px); }
+@media(max-width:1200px){html{font-size:55%;}}
+@media(max-width:995px){.home{flex-direction:column;text-align:center;gap:3rem;padding:10rem 5% 5rem;}.home .home-content h1{font-size:4.5rem;}.home-content h3{font-size:2.5rem;}.home-content p{font-size:1.5rem;}.home-img img{width:60vw;max-width:280px;}.pc-specs .section-title{font-size:3.2rem;}}
+@media(max-width:600px){html{font-size:50%;}header{padding:1rem 5%;}nav{width:90%;}.home .home-content h1{font-size:3.8rem;}.home-content h3{font-size:2rem;}.home-img img{width:70vw;}.specs-container{grid-template-columns:1fr;}.weapon-grid, .attachment-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+<header>
+<a href="#" class="logo">Naelino</a>
+<nav>
+<a href="#home">Home</a>
+<a href="#PC-Specs">PC Specs</a>
+<a href="#Sensitivity">Sensitivity</a>
+<a href="#Loadout">Loadout</a>
+<a href="#My-Games">My Games</a>
+<a href="#My-Apps">My Apps</a>
+<span class="nav-underline"></span>
+</nav>
+</header>
+
+<section class="home" id="home">
+<div class="home-img"><img src="yuta-okkotsu-5842.png" alt="Profile Picture" /></div>
+<div class="home-content">
+<h1>Hi, It's <span>XXNAEL</span></h1>
+<h3 class="typing-text">I'm a <span id="animated-word" class="fade-in">Paid Player</span></h3>
+<p>Experienced gamer offering rank boosting services and fun duo sessions in Blood Strike, Valorant, and Mobile Legends. I focus on fast, affordable, and reliable service, with guaranteed results and friendly communication via Discord or WhatsApp. Available for both solo and duo boosting, as well as casual matches. Based on the Asia server. Discounts every Friday and free consultations always included.</p>
+<div class="social-icons">
+<a href="https://github.com/XX-ELIXXZY" target="_blank"><i class="fa-brands fa-github"></i></a>
+<a href="https://youtube.com/@xxnael" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+<a href="https://www.instagram.com/kykxzz__" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.tiktok.com/@naelinoee" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+</div>
+<a href="https://www.youtube.com/channel/UCpii_DKzx_jiOJgPrW-jfCg/join" class="btn glowing" target="_blank">Join Membership</a>
+</div>
+</section>
+
+<section class="pc-specs" id="PC-Specs">
+<h2 class="section-title">💻 PC Specs</h2>
+<div class="specs-container">
+<div class="spec-card fade-scroll"><img src="R5 5500.jpg" alt="Ryzen 5 5500"><h3>Ryzen 5 5500</h3></div>
+<div class="spec-card fade-scroll"><img src="RTX 2060 colorful.jpg" alt="RTX 2060 6GB Colorful"><h3>Colorful RTX 2060 6GB</h3></div>
+<div class="spec-card fade-scroll"><img src="msi a520m a pro.jpg" alt="MSI A520M-A PRO"><h3>MSI A520M-A PRO</h3></div>
+<div class="spec-card fade-scroll"><img src="KingBank 2x8GB 3200mhz ddr4.jpg" alt="RAM 2×8GB 3200MHz"><h3>2×8GB 3200MHz DDR4</h3></div>
+<div class="spec-card fade-scroll"><img src="ssd nvme venomrx 256gb.jpg" alt="SSD 256GB"><h3>M.2 NVME 256GB</h3></div>
+<div class="spec-card fade-scroll"><img src="HDD 1TB.jpg" alt="HDD 1TB"><h3>HDD 1TB</h3></div>
+<div class="spec-card fade-scroll"><img src="Case DA Gaming N30S.jpg" alt="Case DA Gaming N30S"><h3>DA Gaming N30S</h3></div>
+<div class="spec-card fade-scroll"><img src="Mouse Logitech G203.jpg" alt="Mouse Logitech G203"><h3>Logitech G203</h3></div>
+<div class="spec-card fade-scroll"><img src="ebcam NYK Nemesis A96.jpg" alt="Webcam NYK Nemesis A96"><h3>NYK Nemesis A96</h3></div>
+<div class="spec-card fade-scroll"><img src="Mic Thronmax MDrill Dome Plus.jpg" alt="Mic Thronmax MDrill Dome Plus"><h3>Thronmax MDrill Dome Plus</h3></div>
+</div>
+</section>
+
+<section class="loadout" id="Loadout">
+<h2 class="section-title">🎮 Loadout</h2>
+<div class="loadout-categories">
+<div class="loadout-card" data-game="blood-strike">Blood Strike</div>
+<div class="loadout-card" data-game="warzone">Warzone</div>
+<div class="loadout-card" data-game="delta-force">Delta Force</div>
+</div>
+</section>
+
+<div id="loadout-overlay" class="overlay">
+  <div class="overlay-content">
+    <span class="close-btn">&times;</span>
+    <h3 id="overlay-title" style="text-align:center;color:#7200c4;margin-bottom:1rem;font-size:2.5rem;"></h3>
+    <div id="weapon-grid" class="weapon-grid"></div>
+    <div id="attachment-grid" class="attachment-grid"></div>
+  </div>
+</div>
+
+<script>
+// TEXT ANIMATION
+const words=[{text:"Paid Player",color:"#7200c4"},{text:"Streamer",color:"red"},{text:"Content Creator",color:"red"},{text:"Lita Player",color:"white"}];
+let i=0;const el=document.getElementById("animated-word");
+function changeWord(){el.classList.remove("fade-in");el.classList.add("fade-out");setTimeout(()=>{el.textContent=words[i].text;el.style.color=words[i].color;el.classList.remove("fade-out");el.classList.add("fade-in");i=(i+1)%words.length;},600);}
+setInterval(changeWord,2000);
+
+// SCROLL FADE-IN
+const scrollElements=document.querySelectorAll(".fade-scroll");
+const elementInView=(el,offset=0)=>el.getBoundingClientRect().top<=(window.innerHeight||document.documentElement.clientHeight)-offset;
+const handleScrollAnimation=()=>{scrollElements.forEach((el,index)=>{if(elementInView(el,100)){setTimeout(()=>{el.classList.add("in-view");el.style.boxShadow=`0 0 ${20+index*5}px rgba(114,0,196,0.8)`;},index*100);}else{el.classList.remove("in-view");el.style.boxShadow="0 0 15px rgba(114,0,196,0.3)";}});};
+window.addEventListener("scroll",handleScrollAnimation);handleScrollAnimation();
+
+// NAVBAR
+const sections=document.querySelectorAll("section");const navLinks=document.querySelectorAll("nav a");const underline=document.querySelector(".nav-underline");
+function updateUnderline(link){underline.style.width=link.offsetWidth+"px";underline.style.left=link.offsetLeft+"px";}
+window.addEventListener("scroll",()=>{let current="";sections.forEach(section=>{if(pageYOffset>=section.offsetTop-150){current=section.getAttribute("id");}});navLinks.forEach(link=>{link.classList.remove("active");if(link.getAttribute("href")==="#"+current){link.classList.add("active");updateUnderline(link);}});});
+navLinks.forEach(link=>{link.addEventListener("click",()=>{navLinks.forEach(l=>l.classList.remove("active"));link.classList.add("active");updateUnderline(link);});});
+if(navLinks.length)updateUnderline(navLinks[0]);
+
+// PARTICLES
+const canvas=document.getElementById("particles-canvas");const ctx=canvas.getContext("2d");canvas.width=window.innerWidth;canvas.height=window.innerHeight;let particlesArray=[];
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+0.5;this.speedX=Math.random()*0.5-0.25;this.speedY=Math.random()*0.5-0.25;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle="rgba(114,0,196,0.5)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++){particlesArray.push(new Particle());}}function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+window.addEventListener("resize",()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;initParticles();});initParticles();animateParticles();
+
+// LOADOUT
+const loadoutCards=document.querySelectorAll('.loadout-card');const overlay=document.getElementById('loadout-overlay');const weaponGrid=document.getElementById('weapon-grid');const attachmentGrid=document.getElementById('attachment-grid');const closeBtn=document.querySelector('.close-btn');const overlayTitle=document.getElementById('overlay-title');
+
+const bloodStrikeWeapons=[{name:'UMP45',img:'RTX 2060 colorful.jpg',attachments:[{name:'Muzzle',img:'RTX 2060 colorful.jpg'},{name:'Barrel',img:'RTX 2060 colorful.jpg'},{name:'Underbarrel',img:'RTX 2060 colorful.jpg'}]},{name:'AK47',img:'ak47.jpg',attachments:[{name:'Scope',img:'scope.jpg'},{name:'Grip',img:'grip.jpg'}]}];
+
+loadoutCards.forEach(card=>{card.addEventListener('click',()=>{let game=card.dataset.game;weaponGrid.innerHTML='';attachmentGrid.innerHTML='';overlayTitle.textContent=card.textContent;let weapons=[];if(game==='blood-strike')weapons=bloodStrikeWeapons;weapons.forEach((w,index)=>{let weaponEl=document.createElement('div');weaponEl.classList.add('weapon-card','slide-left');weaponEl.innerHTML=`<img src="${w.img}" alt="${w.name}"><h4>${w.name}</h4>`;weaponEl.addEventListener('click',()=>{attachmentGrid.innerHTML='';w.attachments.forEach((a,i)=>{let aEl=document.createElement('div');aEl.classList.add('attachment-card','slide-right');aEl.innerHTML=`<img src="${a.img}" alt="${a.name}"><p>${a.name}</p>`;attachmentGrid.appendChild(aEl);setTimeout(()=>{aEl.classList.add('in-view');},i*150);});});weaponGrid.appendChild(weaponEl);setTimeout(()=>{weaponEl.classList.add('in-view');},index*150);});document.body.style.filter="blur(2px)";overlay.style.display='flex';});});
+
+closeBtn.addEventListener('click',()=>{overlay.style.display='none';document.body.style.filter="none";});
+overlay.addEventListener('click',e=>{if(e.target===overlay){overlay.style.display='none';document.body.style.filter="none";}});
+</script>
+</body>
+</html>

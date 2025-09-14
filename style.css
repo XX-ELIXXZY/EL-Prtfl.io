@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+  font-size: 3rem;
+  color: #7200c4;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  font-size: 1.8rem;
+  color: white;
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: #7200c4;
+  border-bottom: 3px solid #7200c4;
+}
+
+/* Hamburger Menu */
+#menu-icon {
+  font-size: 3.5rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* Responsive Navbar */
+@media (max-width: 995px) {
+  nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 70%;
+    border-left: 3px solid #7200c4;
+    border-bottom: 3px solid #7200c4;
+    border-bottom-left-radius: 2rem;
+    padding: 2rem;
+    background-color: #161616;
+    flex-direction: column;
+    transition: 0.3s ease;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav a {
+    display: block;
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 8rem 9% 5rem; /* biar ga ketiban header */
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background-color: black;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.home .home-content h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+span {
+  color: #7200c4;
+}
+
+.home-content h3 {
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  max-width: 600px;
+}
+
+/* Profile Image */
+.home-img img {
+  width: 28vw;
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #7200c4;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.home-img img:hover {
+  transform: scale(1.05);
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: transparent;
+  border: 0.2rem solid #7200c4;
+  font-size: 2rem;
+  border-radius: 50%;
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+  color: #7200c4;
+}
+
+.social-icons a:hover {
+  color: black;
+  transform: scale(1.3) translateY(-5px);
+  background-color: #7200c4;
+  box-shadow: 0 0 25px #7200c4;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: white;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.glowing {
+  background: linear-gradient(45deg, #7200c4, #c400ff, #7200c4);
+  background-size: 400% 400%;
+  animation: glow 8s ease infinite;
+  box-shadow: 0 0 20px #7200c4;
+  border: 2px solid #7200c4;
+}
+
+.btn.glowing:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #c400ff;
+  color: black;
+  background-color: white;
+}
+
+/* Glowing animation */
+@keyframes glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade-in animation for text */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* === PC SPECS SECTION === */
+.pc-specs {
+  background: #0d0d0d;
+  text-align: center;
+}
+
+.pc-specs .section-title {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  color: #7200c4;
+  text-shadow: 0 0 10px rgba(114,0,196,0.8);
+}
+
+.specs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+}
+
+.spec-card {
+  background: #161616;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 15px rgba(114,0,196,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spec-card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spec-card h3 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.spec-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(114,0,196,0.6);
+}
+
+/* Responsive tweaks */
+@media (max-width: 1200px) {
+  html { font-size: 55%; }
+}
+
+@media (max-width: 995px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    padding: 10rem 5% 5rem;
+  }
+
+  .home .home-content h1 {
+    font-size: 4.5rem;
+  }
+
+  .home-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .home-content p {
+    font-size: 1.5rem;
+  }
+
+  .home-img img {
+    width: 60vw;
+    max-width: 280px;
+  }
+
+  .pc-specs .section-title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 50%; }
+
+  header {
+    padding: 1rem 5%;
+  }
+
+  nav {
+    width: 90%;
+  }
+
+  .home .home-content h1 {
+    font-size: 3.8rem;
+  }
+
+  .home-content h3 {
+    font-size: 2rem;
+  }
+
+  .home-img img {
+    width: 70vw;
+  }
+
+  .specs-container {
+    grid-template-columns: 1fr;
+  }
+}
